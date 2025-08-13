@@ -20,3 +20,7 @@ for item in product.items():
     
     print(item)
     # print(item,product[item])
+    
+
+def say_hello():
+    return "Hello world"
