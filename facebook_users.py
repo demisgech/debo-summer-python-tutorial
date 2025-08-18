@@ -8,3 +8,4 @@ for user in media_users:
         send_verification_email("support@debo.org",user['email'],"Student registration date will be on")
         # facebook_users.append(user)
 # print(facebook_users)
+
