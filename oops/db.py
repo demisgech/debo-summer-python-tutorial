@@ -1,6 +1,6 @@
 import sqlite3
 
-conn = sqlite3.connect("school.db")
+conn = sqlite3.connect("db.db")
 c = conn.cursor()
 # c.execute(
 #     f"""create table users(
@@ -14,7 +14,7 @@ c = conn.cursor()
 #                 (2,'john')
 #           """)
 
-# c.execute(""" 
+# c.execute("""
 #           UPDATE users
 #           SET name = 'Kebede'
 #           WHERE id = 1
@@ -27,20 +27,20 @@ c = conn.cursor()
 # queryset = statement.fetchall()
 
 # c.execute("""
-#           DELETE FROM users
+#           DROP TABLE users
 #           """)
-# c.execute("""
-#           DELETE FROM users
-#           WHERE id = 1
-#           """)
+c.execute("""
+          DELETE FROM users
+          WHERE id = 1
+          """)
 
-# statement = c.execute(
-#     """
-#     SELECT * FROM users
-#     WHERE id = 1
-#     """)
+statement = c.execute(
+    """
+    SELECT * FROM users
+    WHERE id = 1
+    """)
 
-# queryset = statement.fetchone()
+queryset = statement.fetchone()
 
 # for row in queryset:
 #     print(row[1])
@@ -78,15 +78,15 @@ c = conn.cursor()
 # # queryset = statement.fetchmany(2)
 # queryset = statement.fetchall()
 
-statement = c.execute("""
-          SELECT u.name, c.title,c.price
-          FROM users u
-          JOIN courses c
-                    ON u.id = c.user_id
-          ORDER BY c.price ASC
-          """)
-queryset = statement.fetchall()
-print(queryset)
+# statement = c.execute("""
+#           SELECT u.name, c.title,c.price
+#           FROM users u
+#           JOIN courses c
+#                     ON u.id = c.user_id
+#           ORDER BY c.price ASC
+#           """)
+# queryset = statement.fetchall()
+# print(queryset)
 conn.commit()
 
 # class User:
